@@ -1,13 +1,13 @@
 require 'test_helper'
 
 class StaticPagesControllerTest < ActionController::TestCase
-  test "should get welcome" do
-    get :welcome
+  test "should get login" do
+    get :login
     assert_response :success
   end
 
-  test "should get help" do
-    get :help
+  test "should get game" do
+    get :game
     assert_response :success
   end
 

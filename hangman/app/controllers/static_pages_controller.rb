@@ -1,13 +1,16 @@
 class StaticPagesController < ApplicationController
-  def welcome
+  def login
   end
 
-  def help
+  def game
   end
 
   def contact
   end
 
-  def game
+  def help
+  end
+  
+  def welcome
   end
 end
