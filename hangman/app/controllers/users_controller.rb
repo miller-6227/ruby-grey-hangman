@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   	@user.games = 0
   	@user.high = 0
   	if @user.save
+      log_in @user
   		flash[:success] = "Welcome to Evil Hangman!"
   		redirect_to @user
   	else
