@@ -84,6 +84,10 @@ textarea {
 
 /* typography */
 
+label{
+	color: rgb(0,100,200);
+}
+
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
 }
@@ -93,6 +97,7 @@ h1 {
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
+  color: rgb(100,50,200)
 }
 
 h2 {
@@ -107,6 +112,7 @@ h2 {
 p {
   font-size: 1.1em;
   line-height: 1.7em;
+  color: rgb(100,50,200)
 }
 
 a {
