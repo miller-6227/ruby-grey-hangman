@@ -1,2 +1,7 @@
 <% provide(:title, @user.name) %>
-<%= @user.name %>, <%= @user.games %>, <%= @user.high %>
+<h1><%= @user.name %></h1>
+<h2>Games Played: <%= @user.games %></h2>
+<h2>High Score: <%= @user.high %></h2>
+<div class="wrapperCenter">
+<%= link_to "Play Hangman", '/game/'+params[:id], class: "btn btn-lg btn-primary"%>
+</div>
