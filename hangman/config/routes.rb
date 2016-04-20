@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'game/gameplay'
+
   get 'sessions/new'
 
   get 'help' => 'static_pages#help'
