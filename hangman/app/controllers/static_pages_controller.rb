@@ -4,19 +4,15 @@ class StaticPagesController < ApplicationController
   end
 
   def game
-    @user = User.find(params[:id])
-    dict = Set.new
-
-    File.foreach('dictionary.txt') {|word| dict.add(word.chomp)}
-    guesses = 18
-    word = rand(4..7).times.map {false}
-    dict.reject! {|w| w.length != word.length}
+    @user = current_user
+    
   end
 
   def contact
   end
 
   def leaderboard
+      @current = current_user
       @user = User.order("high DESC").first
       @second = User.order("high DESC").second
       @third = User.order("high DESC").third

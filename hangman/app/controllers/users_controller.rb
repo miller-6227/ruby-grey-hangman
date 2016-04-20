@@ -4,13 +4,6 @@ class UsersController < ApplicationController
   	@user = User.find(params[:id])
   end
 
-
-  def game
-    @user = User.find(params[:id])
-  end
-
-
-
   def new
   	@user = User.new
   end

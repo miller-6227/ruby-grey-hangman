@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
   get 'help' => 'static_pages#help'
-  get 'game/:id' => 'users#game'
+  get 'game' => 'static_pages#game'
   get 'signup' => 'users#new'
   get 'contact' => 'static_pages#contact'
   get    'login'   => 'sessions#new'
