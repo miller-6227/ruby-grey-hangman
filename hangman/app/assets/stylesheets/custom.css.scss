@@ -58,6 +58,10 @@ input {
   @include box_sizing;
 }
 
+table{
+  width: 100%;
+}
+
 
 
 /* universal */
@@ -87,6 +91,12 @@ textarea {
 }
 
 /* typography */
+
+
+.readable {
+  font-size: 2em;
+  color: rgb(255,255,255);
+}
 
 label{
 	color: rgb(0,100,200);

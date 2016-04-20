@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 20160416210345) do
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
-    t.string   "email"
     t.integer  "high"
     t.integer  "games"
     t.datetime "created_at",      null: false
