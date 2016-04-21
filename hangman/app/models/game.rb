@@ -1,7 +1,6 @@
 class Game
   include ActiveModel::AttributeMethods, ActiveModel::Serializers::JSON
 
-  class GameOverError < StandardError; end
 
   MAX_FAILED_ATTEMPTS = 5
 
@@ -25,9 +24,12 @@ class Game
 
   		@word = @dict.shuffle!.first.upcase
   		@selected_letters = []
-  		@guesses = 0
+  		@guesses = @word.length
 	end
 
+	def guessesAllowed
+		@word.length
+	end
   	def attributes
     	{'word' => nil,
      	'selected_letters' => nil}
@@ -51,38 +53,18 @@ class Game
 
   	def guessed?
   		(word.split('') - selected_letters).empty?
-	    #@word.count false == 0
+	    
 	end
 	    
 	    def finished?
-	        guessed? or failed_attempts >= 10
+	        guessed? or failed_attempts >= word.length
 	    end
-	    
-	    def input
-	    	guess = params[:letter]
-	        if @letters.include? guess then
-	            guess = gets.chomp
-	            @letters.delete guess
-	            pattern, @dict = *dict.classify {|word| word.split(//).map {|l| l == guess}}.max_by {|p, set| set.size}
-	            @word = @word.zip(pattern).map {|a, b| (not a and b)? guess : a}
-	            @guesses += 1
-	            @pattern = pattern_string
-	        else
-	            puts "error: letter not found"
-	        end
-	    end	
 
 	    def select!(letter)
- 			raise GameOverError if finished?
 
- 			#@letters.delete letter
-	        #@pattern, @dict = *dict.classify {|word| word.split(//).map {|l| l == letter}}.max_by {|p, set| set.size}
-	        #@word = @word.zip(pattern).map {|a, b| (not a and b)? guess : a}
-	        #@guesses += 1
-	        #@pattern = pattern_string
+ 		
   			selected_letters << letter unless selected_letters.include? letter
  		 	word.include? letter
- 		 	@guesses +=1
 		end
 
 		def pattern_string

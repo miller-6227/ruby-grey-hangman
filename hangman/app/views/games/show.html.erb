@@ -1,5 +1,5 @@
 <h1>Evil Hangman</h1>
-<p>Welcome, <%= @user.name %> lets play a little game... </p>
+<p>Welcome, <%= @user.name %>. Lets play hangman. </p>
 
 
 					<ul class = "theWord">
@@ -11,13 +11,14 @@
                     <% end %>
                     </ul>
                 <% if @current_game.attempts == 1 %>
-                <p>You have made <%= @current_game.failed_attempts %> wrong guess out of 10.</p>
+                <p>You have made <%= @current_game.failed_attempts %> wrong guess out of <%=current_game.guessesAllowed%>.</p>
                 <%else%>
-                <p>You have made <%= @current_game.failed_attempts %> wrong guesses out of 10.</p>
+                <p>You have made <%= @current_game.failed_attempts %> wrong guesses out of <%=current_game.guessesAllowed%>.</p>
                 <%end%>
 
         <% if current_game.finished? %>
-        	<%@user.games +=1 %>
+        	<% games = @user.games+1 %>
+        	<%@user.update_attribute(:games, games) %>
                     <% if current_game.guessed? %>
                         <p>You successfully guessed the word!</p>
                         <p>Your score: <%=@score = 26-current_game.failed_attempts %></p>
