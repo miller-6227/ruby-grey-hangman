@@ -9,6 +9,10 @@ input {
   font-size: 24px;
 }
 
+input:hover {
+  color: white;
+  background-color: red;
+}
 #letterChooser {
   text-align: center;
 }
