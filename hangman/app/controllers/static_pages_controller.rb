@@ -10,15 +10,15 @@ class StaticPagesController < ApplicationController
   def guestlogin
     @user = User.find_by name: "guest"
     if @user !=nil
-    log_in @user
-  else
-    @user = User.new
-    @user.name ="guest"
-    @user.high = 0
-    @user.games = 0
-    @user.save
-    log_in @user
-  end
+      log_in @user
+    else
+      @user = User.new
+      @user.name ="guest"
+      @user.high = 0
+      @user.games = 0
+      @user.save
+      log_in @user
+    end
     redirect_to root_url
   end
 
@@ -26,18 +26,13 @@ class StaticPagesController < ApplicationController
   end
 =begin
   def statistics
-
-      ('A'..'Z').each do |letter|
-        Letters.create(:name => letter.to_s, :frequency => 0)
-      end
-
       @frequency = []
       @percent = []
       i=0
       sum = 0
 
       ('A'..'Z').each do |l|
-        letter = Letters.find i
+        letter = Letter.find i
         @frequency[i] = letter.frequency
         sum += @frequency[i]
         i++
@@ -63,7 +58,6 @@ class StaticPagesController < ApplicationController
       @eigth = User.order("high DESC").at(8)
       @ninth = User.order("high DESC").at(9)
       @tenth = User.order("high DESC").at(10)
-
   end
 
   def help

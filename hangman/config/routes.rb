@@ -10,7 +10,6 @@ Rails.application.routes.draw do
 
   get 'sessions/new'
   get 'guestlogin' => 'static_pages#guestlogin'
-  get 'statistics' => 'static_pages#statistics'
   get 'help' => 'static_pages#help'
   get 'signup' => 'users#new'
   get 'contact' => 'static_pages#contact'

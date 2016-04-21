@@ -5,7 +5,7 @@
 <table>
 <th>Letter</th><th>Times Guessed</th><th>Percent</th>
 <% i = 0%>
-<% for (A..Z) do |l|%>
+<% ('A'..'Z').each do |l|%>
 <tr><td><%=l%></td><td><%=@frequency[i]%></td><td><%=@percent[i]%>%</td></tr>
 <%i++%>
 <%end%>
