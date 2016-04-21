@@ -1,6 +1,7 @@
 <% provide(:title, "Leaderboard") %>
 <h1> Leaderboard:</h1>
 <div class = "transbox">
+<% if @tenth != nil %>
 <table>
 <th>Position</th><th>Username</th><th>High Score</th><th>Games Played</th>
 <tr><td>1</td><td><%= @user.name %></td><td><%= @user.high %></td><td><%= @user.games %></td></tr>
@@ -13,3 +14,6 @@
 <tr><td>8</td><td><%= @eigth.name %></td><td><%= @eigth.high %></td><td><%= @eigth.games %></td></tr>
 <tr><td>9</td><td><%= @ninth.name %></td><td><%= @ninth.high %></td><td><%= @ninth.games %></td></tr>
 <tr><td>10</td><td><%= @tenth.name %></td><td><%= @tenth.high %></td><td><%= @tenth.games %></td></tr></table></div>
+<% else%>
+<p>Not enough users yet, when ten people have played the highscores will show</p>
+<%end%>
