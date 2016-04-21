@@ -43,10 +43,13 @@ class GameController < ApplicationController
     
     def show
         puts "\n"
-        puts word.map {|letter| if letter then letter else "_" end}.join " "
         puts "Size: #{dict.size} Guesses left: #{guesses}"
         puts "Used letters: #{letters.join " "}"
         puts "Enter guess: "
+    end
+    
+    def pattern
+        word.map {|letter| if letter then letter else "_" end}.join " "
     end
     
 end
