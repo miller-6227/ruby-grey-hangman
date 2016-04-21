@@ -6,6 +6,13 @@ h1 {
 	color: white;
 }
 
+.help a {
+	color: black;
+}
+
+.help a:hover {
+	color: red;
+}
 
 .transbox {
   margin: 30px;
@@ -17,6 +24,3 @@ h1 {
    
 }
 
-a {
-	color: black;
-}
