@@ -12,7 +12,7 @@ while guesses > 0 do
     puts "\n"
     puts word.map {|letter| if letter then letter else "_" end}.join " "
     puts "Size: #{dict.size} Guesses left: #{guesses}"
-    puts "Used letters: #{letters.join " "}"
+    puts "Available letters: #{letters.join " "}"
     puts "Enter guess: "
 
     guess = gets.chomp
