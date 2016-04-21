@@ -1,5 +1,5 @@
 <h1>Evil Hangman</h1>
-<p>Welcome, lets play a little game...</p>
+<p>Welcome, <%= @user.name %> lets play a little game...</p>
 
 
 
@@ -8,13 +8,25 @@
                                 <%= current_game.finished? || current_game.selected_letters.include?(letter) ? letter : '_' %>
                             </div>
                     <% end %>
-                
+                <% if @current_game.attempts == 1 %>
+                <h3>You have made <%= @current_game.attempts %> guess.</h3>
+                <%else%>
+                <h3>You have made <%= @current_game.attempts %> guesses.</h3>
+                <%end%>
 
         <% if current_game.finished? %>
                     <% if current_game.guessed? %>
                         <h3>You successfully guessed the word!</h3>
+                        <h3>Your score: <%=@score = 26-current_game.failed_attempts %></h3>
+                        <%if @user.high < @score%>
+                        <% @user.update_attribute(:high, @score) %>
+                        <%end%>
                     <% else %>
                         <h3>You did not guess the word...</h3>
+                        <h3>Your score: <%=@score = current_game.attempts - current_game.failed_attempts %></h3>
+                        <%if @user.high < @score%>
+                        <% @user.update_attribute(:high, @score) %>
+                        <%end%>
                     <% end %>
         <% end %>
 

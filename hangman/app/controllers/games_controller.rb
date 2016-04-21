@@ -5,6 +5,7 @@ class GamesController < ApplicationController
   end
 
   def show
+  	@user = User.find(session[:id])
   	@current_game = current_game
   end
 

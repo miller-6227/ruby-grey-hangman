@@ -45,13 +45,17 @@ class Game
   		}.size
   	end
 
+  	def attempts
+  		selected_letters.size
+  	end
+
   	def guessed?
   		(word.split('') - selected_letters).empty?
 	    #@word.count false == 0
 	end
 	    
 	    def finished?
-	        guessed? or @guesses >= 18
+	        guessed? or attempts >= 10
 	    end
 	    
 	    def input
