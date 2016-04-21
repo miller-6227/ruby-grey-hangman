@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
   
 
+  get 'games/new'
+
+  get 'games/show'
+
+  get 'games/update'
+
+  get 'games/destroy'
+
   get 'sessions/new'
-  get 'game' => 'game#game'
   get 'help' => 'static_pages#help'
   get 'signup' => 'users#new'
   get 'contact' => 'static_pages#contact'
@@ -10,8 +17,8 @@ Rails.application.routes.draw do
   get 'leaderboard' => 'static_pages#leaderboard'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
-  patch   'game' => 'game#input'
 
+  resource :game, :only => [:new, :show, :update, :destroy]
   resources :users
 
 
