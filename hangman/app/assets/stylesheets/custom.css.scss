@@ -44,6 +44,18 @@ input {
   text-align: center;
 }
 
+/* letter chooser form*/
+#letterChooser input {
+  width: 10%;
+}
+
+#letterChooser input.alert{
+  display: none;
+}
+
+#letterChooser input.success {
+  background-color: green;
+}
 
 
 /*flex boxes for sticky footer*/
@@ -70,6 +82,12 @@ table{
   width: 100%;
 }
 
+ul.theWord li {
+  display: inline;
+  font-size: 3em;
+  line-height: 1.7em;
+  color: rgb(255,255,255);
+}
 
 
 /* universal */

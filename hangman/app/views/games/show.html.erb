@@ -2,49 +2,44 @@
 <p>Welcome, <%= @user.name %> lets play a little game...</p>
 
 
-
+					<ul class = "theWord">
                     <% current_game.word.split('').each do |letter| %>
-                            <div class="word-letter">
+                            <li>
                                 <%= current_game.finished? || current_game.selected_letters.include?(letter) ? letter : '_' %>
-                            </div>
+                            </li>
                     <% end %>
+                    </ul>
                 <% if @current_game.attempts == 1 %>
-                <h3>You have made <%= @current_game.attempts %> guess.</h3>
+                <p>You have made <%= @current_game.attempts %> guess out of 10.</p>
                 <%else%>
-                <h3>You have made <%= @current_game.attempts %> guesses.</h3>
+                <p>You have made <%= @current_game.attempts %> guesses out of 10.</p>
                 <%end%>
 
         <% if current_game.finished? %>
                     <% if current_game.guessed? %>
-                        <h3>You successfully guessed the word!</h3>
-                        <h3>Your score: <%=@score = 26-current_game.failed_attempts %></h3>
+                        <p>You successfully guessed the word!</p>
+                        <p>Your score: <%=@score = 26-current_game.failed_attempts %></p>
                         <%if @user.high < @score%>
                         <% @user.update_attribute(:high, @score) %>
                         <%end%>
                     <% else %>
-                        <h3>You did not guess the word...</h3>
-                        <h3>Your score: <%=@score = current_game.attempts - current_game.failed_attempts %></h3>
+                        <p>You did not guess the word...</p>
+                        <p>Your score: <%=@score = current_game.attempts - current_game.failed_attempts %></p>
                         <%if @user.high < @score%>
                         <% @user.update_attribute(:high, @score) %>
                         <%end%>
                     <% end %>
         <% end %>
 
+        <div id = "letterChooser">
         <%= form_for :game, :url => game_path, :method => :patch do |form| %>
-            <div class="row">
-                <div class="letters">
                     <% ('A'..'Z').each do |letter| %>
                         <%
                             if current_game.selected_letters.include? letter
                                 button_class = current_game.word.include?(letter) ? 'success' : 'alert'
                             end
                         %>
-                        <div class="small-2 medium-2 columns text-center">
-                            <div class="letter">
                                 <%= form.submit letter, :name => 'letter', :class => "button expand #{button_class}" %>
-                            </div>
-                        </div>
                     <% end %>
-                </div>
-            </div>
         <% end %>
+        </div>
