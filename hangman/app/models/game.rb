@@ -54,7 +54,7 @@ class Game
   	def guessed?
   		(word.split('') - selected_letters).empty?
 	    
-	end
+	  end
 	    
 	    def finished?
 	        guessed? or failed_attempts >= word.length
@@ -62,12 +62,14 @@ class Game
 
 	    def select!(letter)
 
- 		
+ 			#letterEntry = Letters.find_by(:name letter)
+ 			#frequency = letterEntry.frequency +1
+ 			#letterEntry.update_attribute(:frequency, frequency)
   			selected_letters << letter unless selected_letters.include? letter
  		 	word.include? letter
-		end
+		  end
 
-		def pattern_string
+		  def pattern_string
 	        @word.map {|letter| if letter then letter else "_" end}.join " "
 	    end
 

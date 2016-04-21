@@ -11,9 +11,11 @@
   </h2>
 
   <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+  <%= link_to "Sign in as guest", guestlogin_path, class: "btn btn-lg btn-primary" %>
   	<%else%>
   	<ul></ul>
   		<%= link_to "Lets Play", new_game_path, class: "btn btn-lg btn-primary" %>
+
 	<% end%>
 	</div>
 

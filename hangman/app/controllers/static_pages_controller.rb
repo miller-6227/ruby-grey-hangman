@@ -5,11 +5,42 @@ class StaticPagesController < ApplicationController
 
   def game
     @user = current_user
-    
+  end
+  
+  def guestlogin
+    @user = User.find 16
+    log_in @user
+    redirect_to root_url
   end
 
   def contact
   end
+=begin
+  def statistics
+
+      ('A'..'Z').each do |letter|
+        Letters.create(:name => letter.to_s, :frequency => 0)
+      end
+
+      @frequency = []
+      @percent = []
+      i=0
+      sum = 0
+
+      ('A'..'Z').each do |l|
+        letter = Letters.find i
+        @frequency[i] = letter.frequency
+        sum += @frequency[i]
+        i++
+      end
+
+      i=0
+      ('A'..'Z').each do |l|
+        @percent[i] = (@frequency[i]/sum)*100
+        i++
+      end
+  end
+=end
 
   def leaderboard
       @current = current_user
