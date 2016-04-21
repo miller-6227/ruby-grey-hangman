@@ -2,15 +2,15 @@ Rails.application.routes.draw do
   
 
   get 'sessions/new'
-  get 'gameplay' => 'game#gameplay'
+  get 'game' => 'game#game'
   get 'help' => 'static_pages#help'
-  get 'game' => 'static_pages#game'
   get 'signup' => 'users#new'
   get 'contact' => 'static_pages#contact'
   get    'login'   => 'sessions#new'
   get 'leaderboard' => 'static_pages#leaderboard'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
+  patch   'game' => 'game#input'
 
   resources :users
 
