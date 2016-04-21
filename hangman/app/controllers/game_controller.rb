@@ -14,7 +14,7 @@ class GameController < ApplicationController
     
         # Input all words into the dictionary
         @dict = Set.new
-        File.foreach('dictionary.txt') {|w| @dict.add w.chomp}
+        File.foreach("#{Rails.root}/dictionary.txt") {|w| @dict.add w.chomp}
         
         # Pick a word length and limit the dictionary to words of that length
         @word = rand(4..8).times.map {false}

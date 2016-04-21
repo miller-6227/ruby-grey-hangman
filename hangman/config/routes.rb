@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
   
-  get 'game/gameplay'
 
   get 'sessions/new'
-
+  get 'gameplay' => 'game#gameplay'
   get 'help' => 'static_pages#help'
   get 'game' => 'static_pages#game'
   get 'signup' => 'users#new'
