@@ -1,0 +1,12 @@
+<% provide(:title, "Statistics") %>
+<h1>StaticPages#statistics</h1>
+<p>Find me in app/views/static_pages/statistics.html.erb</p>
+
+<table>
+<th>Letter</th><th>Times Guessed</th><th>Percent</th>
+<% i = 0%>
+<% for (A..Z) do |l|%>
+<tr><td><%=l%></td><td><%=@frequency[i]%></td><td><%=@percent[i]%>%</td></tr>
+<%i++%>
+<%end%>
+</table>

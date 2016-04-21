@@ -8,8 +8,17 @@ class StaticPagesController < ApplicationController
   end
   
   def guestlogin
-    @user = User.find 16
+    @user = User.find_by name: "guest"
+    if @user !=nil
     log_in @user
+  else
+    @user = User.new
+    @user.name ="guest"
+    @user.high = 0
+    @user.games = 0
+    @user.save
+    log_in @user
+  end
     redirect_to root_url
   end
 
