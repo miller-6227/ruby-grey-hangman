@@ -7,6 +7,8 @@ Clone the repository onto your computer
 
 Run bundle install 
 
+Run rake db:create
+
 Run rake db:migrate
 
 Run rails s
