@@ -74,12 +74,12 @@ table{
 
 /* universal */
 
-
-
 body {
   padding-top: 60px;
-  background-image: url('background.jpg')
-
+  font-family: Verdana, Geneva, sans-serif;
+  background-image: url('background.jpg');
+  background-size: cover;
+  
 }
 
 section {
@@ -99,12 +99,6 @@ textarea {
 }
 
 /* typography */
-
-
-.readable {
-  font-size: 2em;
-  color: rgb(255,255,255);
-}
 
 label{
 	color: rgb(0,100,200);
@@ -138,11 +132,11 @@ p {
 }
 
 a {
-  color: #778899;
+  color: rgb(340, 300, 340);
 }
 
 a:hover {
-  color: #ff3333;
+  color: rgb(255,228,225);
 }
 
 .jumbotron {
@@ -150,6 +144,7 @@ a:hover {
   background-size: 100%;
   color: white; 
 }
+
 
 /* header */
 
