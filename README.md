@@ -4,9 +4,13 @@ For this project we made a website where users can signup and login to play an e
 
 ## Installation
 Clone the repository onto your computer
+
 Run bundle install 
+
 Run rake db:migrate
+
 Run rails s
+
 Open localhost:3000 into web browser
 
 ## User features
