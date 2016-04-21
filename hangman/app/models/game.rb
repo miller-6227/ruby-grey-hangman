@@ -15,15 +15,15 @@ class Game
         #@guesses = 18
     
         # Input all words into the dictionary
-        #@dict = Set.new
-        #File.foreach("#{Rails.root}/dictionary.txt") {|w| @dict.add w.chomp}
+        @dict = []
+        File.foreach("#{Rails.root}/dictionary.txt") {|w| @dict.concat([w.chomp])}
         
         # Pick a word length and limit the dictionary to words of that length
         #@word = rand(4..8).times.map {false}
         #@dict.reject! {|w| w.length != @word.length}
 
 
-  		@word = 'Hangman'.upcase
+  		@word = @dict.shuffle!.first.upcase
   		@selected_letters = []
   		@guesses = 0
 	end
@@ -55,7 +55,7 @@ class Game
 	end
 	    
 	    def finished?
-	        guessed? or attempts >= 10
+	        guessed? or failed_attempts >= 10
 	    end
 	    
 	    def input

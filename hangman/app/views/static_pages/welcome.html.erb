@@ -4,12 +4,18 @@
   <h1>Welcome to Evil Hangman!</h1>
   <%= image_tag 'hangman.png' %>
 	
+
+	<% if !logged_in? %>
   <h2>
     <ul class> <%= link_to "Log in", login_path %>  or <%= link_to "Sign up", signup_path%> in order to play.</ul>
   </h2>
 
   <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
-</div>
+  	<%else%>
+  	<ul></ul>
+  		<%= link_to "Lets Play", new_game_path, class: "btn btn-lg btn-primary" %>
+	<% end%>
+	</div>
 
 
 

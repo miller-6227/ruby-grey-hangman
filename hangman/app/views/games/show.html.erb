@@ -1,21 +1,23 @@
 <h1>Evil Hangman</h1>
-<p>Welcome, <%= @user.name %> lets play a little game...</p>
+<p>Welcome, <%= @user.name %> lets play a little game... </p>
 
 
 					<ul class = "theWord">
                     <% current_game.word.split('').each do |letter| %>
                             <li>
+
                                 <%= current_game.finished? || current_game.selected_letters.include?(letter) ? letter : '_' %>
                             </li>
                     <% end %>
                     </ul>
                 <% if @current_game.attempts == 1 %>
-                <p>You have made <%= @current_game.attempts %> guess out of 10.</p>
+                <p>You have made <%= @current_game.failed_attempts %> wrong guess out of 10.</p>
                 <%else%>
-                <p>You have made <%= @current_game.attempts %> guesses out of 10.</p>
+                <p>You have made <%= @current_game.failed_attempts %> wrong guesses out of 10.</p>
                 <%end%>
 
         <% if current_game.finished? %>
+        	<%@user.games +=1 %>
                     <% if current_game.guessed? %>
                         <p>You successfully guessed the word!</p>
                         <p>Your score: <%=@score = 26-current_game.failed_attempts %></p>
@@ -29,8 +31,10 @@
                         <% @user.update_attribute(:high, @score) %>
                         <%end%>
                     <% end %>
+                    <%= link_to "Play again?", new_game_path, class: "btn btn-lg btn-primary"%>
         <% end %>
 
+        <% if !current_game.finished? %>
         <div id = "letterChooser">
         <%= form_for :game, :url => game_path, :method => :patch do |form| %>
                     <% ('A'..'Z').each do |letter| %>
@@ -43,3 +47,4 @@
                     <% end %>
         <% end %>
         </div>
+        <%end%>
