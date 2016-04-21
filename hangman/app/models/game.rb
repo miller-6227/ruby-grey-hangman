@@ -11,6 +11,18 @@ class Game
 
 
 	def initialize
+  		#@letters = ("a".."z").to_a
+        #@guesses = 18
+    
+        # Input all words into the dictionary
+        #@dict = Set.new
+        #File.foreach("#{Rails.root}/dictionary.txt") {|w| @dict.add w.chomp}
+        
+        # Pick a word length and limit the dictionary to words of that length
+        #@word = rand(4..8).times.map {false}
+        #@dict.reject! {|w| w.length != @word.length}
+
+
   		@word = 'Hangman'.upcase
   		@selected_letters = []
   		@guesses = 0
@@ -34,7 +46,8 @@ class Game
   	end
 
   	def guessed?
-	    (word.split('') - selected_letters).empty?
+  		(word.split('') - selected_letters).empty?
+	    #@word.count false == 0
 	end
 	    
 	    def finished?
@@ -57,8 +70,15 @@ class Game
 
 	    def select!(letter)
  			raise GameOverError if finished?
+
+ 			#@letters.delete letter
+	        #@pattern, @dict = *dict.classify {|word| word.split(//).map {|l| l == letter}}.max_by {|p, set| set.size}
+	        #@word = @word.zip(pattern).map {|a, b| (not a and b)? guess : a}
+	        #@guesses += 1
+	        #@pattern = pattern_string
   			selected_letters << letter unless selected_letters.include? letter
  		 	word.include? letter
+ 		 	@guesses +=1
 		end
 
 		def pattern_string
