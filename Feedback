@@ -1,0 +1,16 @@
+Web application - 57/75
+* Application was reasonably ambitious, but the complicated part failed to be successfully implemented
+* Application was sufficiently different from the tutorial in the book
+* Some thought went into the design
+* There are several errors:
+  - readme database initialization missing key lines for set up
+  - Sign in as guest does not do anything
+  - Consistently refer to evil hangman. This is not evil hangman
+  - Missing characteristics of enjoyable, playable game    
+    - No hangman in the hangman game
+    - No option to not play again
+
+Presentation - 15/25, did not implement Evil Hangman, yet presented almost entirely on it
+
+
+Overall: 72
